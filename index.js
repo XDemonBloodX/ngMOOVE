@@ -51,9 +51,7 @@ function getRandomInt() {
     return Math.floor(Math.random() * 3);
 }
 
-function alerteTerminal() {
-    console.log("\007");
-}
+
 console.log("script start :)");
 
 (async() => {
@@ -64,9 +62,7 @@ console.log("script start :)");
     if (process.env.CLICKACTIVATE == "TRUE") {
         eat();
     }
-    if (process.env.SONG == "TRUE") {
-        alerteTerminal();
-    }
+
     random = getRandomInt();
     switch (random) {
         case 1:
@@ -79,7 +75,13 @@ console.log("script start :)");
             break;
 
         case 3:
-            chelou(bouge);
+            if (process.env.CHUMACTIVATE == "TRUE") {
+                chelou(bouge);
+
+            } else {
+                right(bouge);
+                left(bouge);
+            }
             break;
 
         default:
