@@ -1,8 +1,9 @@
 let ks = require('node-key-sender');
-require('dotenv').config()
-const delay = require('delay');
-let bouge = process.env.NBBOUGE;
 ks.setOption('globalDelayPressMillisec', 1000);
+require('dotenv').config()
+let moment = require('moment');
+
+let bouge = process.env.NBBOUGE;
 
 
 function eat() {
@@ -54,16 +55,17 @@ function getRandomInt() {
 
 console.log("script start :)");
 
-(async() => {
 
-    await delay(1000 * 60 * 5);
 
-    console.log("wake up !");
-    if (process.env.CLICKACTIVATE == "TRUE") {
+setInterval(function() {;
+    console.log("wake up !\t" + moment().format('MMMM Do YYYY, h:mm:ss a'));
+    if (process.env.EATACTIVATE == "TRUE") {
+        console.log("eat")
         eat();
     }
 
     random = getRandomInt();
+    console.log(random)
     switch (random) {
         case 1:
             forward(bouge);
@@ -89,4 +91,5 @@ console.log("script start :)");
             left(bouge);
             break;
     }
-})();
+
+}, 1000 * 60 * process.env.RESTART);
