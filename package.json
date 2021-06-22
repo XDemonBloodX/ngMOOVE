@@ -1,0 +1,19 @@
+{
+    "name": "moove-ng",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Tanguy Palmié",
+    "license": "ISC",
+    "devDependencies": {
+        "node-key-sender": "^1.0.11"
+    },
+    "dependencies": {
+        "click": "^0.1.0",
+        "delay": "^5.0.0",
+        "dotenv": "^10.0.0"
+    }
+}
